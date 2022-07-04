@@ -54,14 +54,13 @@ class TagsModel
                   . " AND meals_translations.deleted_at BETWEEN " . "'" . $diffTime . "'" . " AND NOW()";
         }
 
-        if (isset($_GET['per_page'])) {
-            $sql .= " LIMIT " . MetaData::showRows() . "," . MetaData::getPerPage();
-        }
-
         $sql .= " GROUP BY meals_translations.meals_id, meals_translations.title,
                 meals_translations.description, meals_translations.status HAVING COUNT(meals_tags.meal_id) = :idCount";
 
-
+        if (isset($_GET['per_page'])) {
+            $sql .= " LIMIT " . MetaData::showRows() . "," . MetaData::getPerPage();
+        }
+        
         //echo $sql;
         $pdo = $this->dbConnInterface->connect();
         $stmt = $pdo->prepare($sql);
