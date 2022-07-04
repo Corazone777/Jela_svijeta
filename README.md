@@ -6,7 +6,7 @@ API with random generated Faker values
 <p>1. Enter your credentials</p>
 
 
-    cd config/ && mv Config.php.example Config.php
+    cd config/ && mv Config.example.php Config.php
 
 <p>2. Install dependencies </p>
 
