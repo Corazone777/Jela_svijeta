@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+namespace Bin;
+
+use Lib\Bin\InsertJoins;
+use Lib\Bin\InsertMainValues;
+use Lib\Bin\InsertTranslations;
+use Lib\Bin\RunInsert;
+use Lib\Bin\Update;
+use Lib\SqlConnection;
+use Lib\Upload;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+
+/**
+ * Run inserts from the CLI
+ * Documentation located in Lib\Bin\ValidateInput
+ */
+
+$db = new SqlConnection();
+$upload = new Upload($db);
+
+$mainTable = new InsertMainValues($db, $upload);
+$translationsTable = new InsertTranslations($db, $upload);
+$joinTables = new InsertJoins($db, $upload);
+$update = new Update($db, $upload);
+
+$runInsert = new RunInsert($mainTable, $translationsTable, $joinTables, $update);
+
+$runInsert->runInsert($argv);

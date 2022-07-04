@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Lib\\": "lib/",
+            "App\\": "src/",
+            "Config\\": "config/"
+        }
+    },
+    "require": {
+        "fzaninotto/faker": "^1.9"
+    }
+}
