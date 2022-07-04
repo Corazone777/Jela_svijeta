@@ -18,5 +18,5 @@ API with random generated Faker values
 
 <p>4. Enter or curl an url</p>
  
-    curl -v "http://localhost:8000/api.php?lang=hr&tags=3&diff_time=1&category=!NULL&with=tags,ingredients&per_page=2"
+    curl -v "http://localhost:8000/api.php?lang=hr&tags=3&diff_time=1655658811&category=!NULL&with=tags,ingredients&per_page=2"
     
